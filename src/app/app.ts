@@ -1,13 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { myheadercomp } from './Headercomp/headercomp';
-import { TaskInputCompClass } from './TaskInputcomp/TaskInputcomp';
-import { TaskListCompClass } from './TaskListComp/TaskListComp';
-import { FooterCompClass } from './FooterComp/FooterComp';
+import { Header } from './header/header';
+import { TaskInput } from './task-input/task-input';
+import { TaskList } from './task-list/task-list';
+import { Footer } from './footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [myheadercomp, TaskInputCompClass, TaskListCompClass, FooterCompClass],
+  imports: [Header, TaskInput, TaskList, Footer],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
