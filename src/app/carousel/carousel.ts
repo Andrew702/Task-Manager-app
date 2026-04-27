@@ -13,6 +13,7 @@ export class Carousel {
     border: '1px solid blue',
     borderRadius: '50%',
   };
+  Timerobj?: any = null;
 
   // sets current to next img
   gonext() {
@@ -27,5 +28,15 @@ export class Carousel {
 
   goindex(index: number) {
     this.currentindex = index;
+  }
+
+  StartSlideShow() {
+    this.Timerobj = setInterval(() => {
+      this.gonext();
+    }, 1000);
+  }
+
+  StopSlideShow() {
+    if (this.Timerobj != null) clearInterval(this.Timerobj);
   }
 }

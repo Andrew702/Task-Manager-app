@@ -1,23 +1,29 @@
 <form action="">
   <h2>Add Task:</h2>
-  <input type="text" name="Tasktitle" placeholder="Task Title" /> <br />
-  <input type="text" name="Taskdescription" placeholder="Task Description" /> <br />
+  <input type="text" [(ngModel)]="tasktitle" name="Tasktitle" placeholder="Task Title" /> <br />
+  <input
+    type="text"
+    [(ngModel)]="taskdescription"
+    name="Taskdescription"
+    placeholder="Task Description"
+  />
+  <br />
   <label for="taskPriority">Task Priority</label>
-  <select name="TaskPrioritySelector" id="taskPriority">
+  <select name="TaskPrioritySelector" [(ngModel)]="taskpriority" id="taskPriority">
     <option value="Low">Low</option>
     <option value="Medium">Medium</option>
     <option value="High">High</option>
   </select>
   <br />
   <label for="DueDate">Due Date</label>
-  <input type="date" name="DueDate" id="DueDate" /> <br />
+  <input type="date" name="DueDate" [(ngModel)]="taskduedate" id="DueDate" /> <br />
   <label for="Category">Category</label>
-  <select name="Category" id="Category">
+  <select name="Category" id="Category" [(ngModel)]="taskcategory">
     <option value="Work">Work</option>
     <option value="Personal">Personal</option>
     <option value="Study">Study</option>
   </select>
   <br />
 
-  <input type="button" value="Add Task" />
+  <input type="button" (click)="Display()" value="Add Task" />
 </form>
