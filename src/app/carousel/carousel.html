@@ -1,0 +1,36 @@
+<div>
+  <img src="imgs/arrowleft.jpg" (click)="goprevious()" width="50" height="50" alt="" />
+  <img
+    [src]="imgs[currentindex]"
+    width="200"
+    height="200"
+    style="border: solid 10px black"
+    alt=""
+  />
+  <img src="imgs/arrowright.jpg" (click)="gonext()" width="50" height="50" alt="" />
+
+  <img
+    src="imgs/radio_off.webp"
+    (click)="goindex(0)"
+    width="25"
+    height="25"
+    alt=""
+    [style]="this.currentindex == 0 ? radioselectedstyle : 'none'"
+  />
+  <img
+    src="imgs/radio_off.webp"
+    (click)="goindex(1)"
+    width="25"
+    height="25"
+    alt=""
+    [style]="this.currentindex == 1 ? radioselectedstyle : 'none'"
+  />
+  <img
+    src="imgs/radio_off.webp"
+    (click)="goindex(2)"
+    width="25"
+    height="25"
+    alt=""
+    [style]="this.currentindex == 2 ? radioselectedstyle : 'none'"
+  />
+</div>
