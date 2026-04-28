@@ -19,6 +19,10 @@ export class App {
     this.TaskArr.push({ ...recievedTask }); //push a copy
     console.log(this.TaskArr);
   }
+
+  DeleteTask(Tasktodelete: Task) {
+    this.TaskArr = this.TaskArr.filter((Task) => Task.taskID != Tasktodelete.taskID);
+  }
 }
 
 export interface Task {

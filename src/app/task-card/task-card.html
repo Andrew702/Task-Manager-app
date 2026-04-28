@@ -1,10 +1,22 @@
-<div>
-  <p>Title: {{ CurrTask.tasktitle }}</p>
-  <p>Priority: {{ CurrTask.tasktitle }}</p>
-  <p>Category: {{ CurrTask.tasktitle }}</p>
-  <p>Due Date: {{ CurrTask.tasktitle }}</p>
-  <button>Clear</button>
-  <button>Update</button>
-  <label for="chkdone">Done</label>
-  <input id="chkdone" type="checkbox" [value]="CurrTask.taskdone" />
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="d-flex flex-column gap-1 mb-3">
+      <p class="card-text mb-0"><span class="fw-medium">Title:</span> {{ Task.tasktitle }}</p>
+      <p class="card-text mb-0"><span class="fw-medium">Priority:</span> {{ Task.taskpriority }}</p>
+      <p class="card-text mb-0"><span class="fw-medium">Category:</span> {{ Task.taskcategory }}</p>
+      <p class="card-text mb-0"><span class="fw-medium">Due Date:</span> {{ Task.taskduedate }}</p>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex gap-2">
+        <button class="btn btn-sm btn-outline-secondary" (click)="DeleteTask()">Delete</button>
+        <button class="btn btn-sm btn-primary">Update</button>
+      </div>
+
+      <div class="form-check mb-0">
+        <input class="form-check-input" id="chkdone" type="checkbox" [value]="Task.taskdone" />
+        <label class="form-check-label" for="chkdone">Done</label>
+      </div>
+    </div>
+  </div>
 </div>

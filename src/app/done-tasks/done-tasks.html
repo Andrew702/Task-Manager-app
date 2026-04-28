@@ -1,0 +1,3 @@
+@for (Task of TaskArr; track Task.taskID) {
+  <app-task-card [Task]="Task" (DeleteEvent)="DeleteTask($event)"></app-task-card>
+}

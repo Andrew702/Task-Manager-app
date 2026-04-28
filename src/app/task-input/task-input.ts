@@ -25,6 +25,7 @@ export class TaskInput {
 
   AddTask() {
     this.CurrTask.taskID = uuidv4();
+    this.CurrTask.taskdone = false;
     //tobedone if (!this.validateData())
     this.TaskOutEvent.emit(this.CurrTask as Task);
   }

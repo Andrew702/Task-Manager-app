@@ -1,58 +1,65 @@
-<div class="container-fluid">
-  <div class="row text-center">
+<div class="container-fluid px-4 py-5">
+  <div class="row text-center fw-semibold">
     <h2>Add Task:</h2>
   </div>
 
-  <div class="row text-center">
-    <div class="col-3">
-      <input
-        type="text"
-        [(ngModel)]="CurrTask.tasktitle"
-        name="Tasktitle"
-        placeholder="Task Title"
-      />
-    </div>
-    <div class="col-6">
-      <input
-        type="text"
-        [(ngModel)]="CurrTask.taskdescription"
-        name="Taskdescription"
-        placeholder="Task Description"
-      />
-    </div>
-    <div class="col-3">
-      <div class="row">
-        <div class="col-6">
-          <label for="taskPriority">Task Priority</label>
-        </div>
-        <div class="col-6">
-          <select name="TaskPrioritySelector" [(ngModel)]="CurrTask.taskpriority" id="taskPriority">
-            <option value="Low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-        </div>
-      </div>
-    </div>
+  <div class="row text-center py-2">
+    <input
+      class="form-control"
+      type="text"
+      [(ngModel)]="CurrTask.tasktitle"
+      name="Tasktitle"
+      placeholder="Task Title"
+    />
   </div>
 
+  <div class="row text-center py-2">
+    <input
+      type="text"
+      [(ngModel)]="CurrTask.taskdescription"
+      name="Taskdescription"
+      class="form-control"
+      placeholder="Task Description"
+    />
+  </div>
   <div class="row text-center">
     <div class="col-4">
-      <div class="row">
-        <div class="col-6"><label for="DueDate">Due Date</label></div>
-        <div class="col-6">
-          <input type="date" name="DueDate" [(ngModel)]="CurrTask.taskduedate" id="DueDate" />
-        </div>
+      <label for="taskPriority" class="form-label">Task Priority</label>
+      <select
+        name="TaskPrioritySelector"
+        class="form-select"
+        [(ngModel)]="CurrTask.taskpriority"
+        id="taskPriority"
+      >
+        <option value="" disabled>Task Priority</option>
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      </select>
+    </div>
+    <div class="col-4">
+      <div class="row text-center">
+        <label for="DueDate" class="form-label">Due Date</label>
+        <input
+          type="date"
+          name="DueDate"
+          class="form-control"
+          [(ngModel)]="CurrTask.taskduedate"
+          id="DueDate"
+        />
       </div>
     </div>
     <div class="col-4">
-      <label for="Category">Category</label>
-      <select name="Category" id="Category" [(ngModel)]="CurrTask.taskcategory">
+      <label for="Category" class="form-label">Category</label>
+      <select name="Category" class="form-select" id="Category" [(ngModel)]="CurrTask.taskcategory">
         <option value="Work">Work</option>
         <option value="Personal">Personal</option>
         <option value="Study">Study</option>
       </select>
     </div>
-    <div class="col-4"><input type="button" (click)="AddTask()" value="Add Task" /></div>
+
+    <div class="row py-3">
+      <button class="btn btn-primary" (click)="AddTask()">Add Task</button>
+    </div>
   </div>
 </div>

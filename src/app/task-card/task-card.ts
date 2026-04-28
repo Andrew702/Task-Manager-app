@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../app';
 
 @Component({
@@ -8,5 +8,11 @@ import { Task } from '../app';
   styleUrl: './task-card.css',
 })
 export class TaskCard {
-  CurrTask: Partial<Task> = {};
+  @Input() Task: Partial<Task> = {};
+
+  @Output() DeleteEvent: EventEmitter<Task> = new EventEmitter();
+
+  DeleteTask() {
+    this.DeleteEvent.emit(this.Task as Task);
+  }
 }

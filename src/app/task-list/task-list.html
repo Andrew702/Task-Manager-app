@@ -1,6 +1,24 @@
-<button>All Tasks</button>
-<button>Done</button>
-<button>Pending</button>
-<app-task-card></app-task-card>
-<app-task-card></app-task-card>
-<app-task-card></app-task-card>
+<div class="container-fluid px-4 py-4">
+  <!-- filter buttons -->
+  <div class="row justify-content-center mb-4">
+    <div class="col-12 d-flex">
+      <button class="btn btn-primary" (click)="Selection = 'All'">All Tasks</button>
+      <button class="btn btn-outline-success" (click)="Selection = 'Done'">Done</button>
+      <button class="btn btn-outline-warning" (click)="Selection = 'Pending'">Pending</button>
+    </div>
+    {{ Selection }}
+
+    @if (Selection == 'All') {
+      <app-all-tasks [TaskArr]="TaskArr" (DeleteEvent)="DeleteTask($event)"></app-all-tasks>
+    } @else if (Selection == 'Done') {
+      <app-done-tasks
+        [TaskArr]="TaskArr.filter((elem) => elem.taskdone == true)"
+        (DeleteEvent)="DeleteTask($event)"
+      ></app-done-tasks>
+    } @else if (Selection == 'Pending') {
+      <app-pending-tasks
+        [TaskArr]="TaskArr.filter((elem) => elem.taskdone == false)"
+      ></app-pending-tasks>
+    }
+  </div>
+</div>
