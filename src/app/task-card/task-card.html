@@ -1,5 +1,10 @@
-<ul>
-  <li>Task Name</li>
-  <li>Task Priority</li>
-  <li>Task Due Date</li>
-</ul>
+<div>
+  <p>Title: {{ CurrTask.tasktitle }}</p>
+  <p>Priority: {{ CurrTask.tasktitle }}</p>
+  <p>Category: {{ CurrTask.tasktitle }}</p>
+  <p>Due Date: {{ CurrTask.tasktitle }}</p>
+  <button>Clear</button>
+  <button>Update</button>
+  <label for="chkdone">Done</label>
+  <input id="chkdone" type="checkbox" [value]="CurrTask.taskdone" />
+</div>

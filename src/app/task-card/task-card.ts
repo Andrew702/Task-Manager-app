@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Task } from '../app';
 
 @Component({
   selector: 'app-task-card',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './task-card.html',
   styleUrl: './task-card.css',
 })
-export class TaskCard {}
+export class TaskCard {
+  CurrTask: Partial<Task> = {};
+}

@@ -13,5 +13,20 @@ import { Carousel } from './carousel/carousel';
   styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('lab01');
+  TaskArr: Task[] = [];
+
+  RecieveTaskInput(recievedTask: Task) {
+    this.TaskArr.push({ ...recievedTask }); //push a copy
+    console.log(this.TaskArr);
+  }
+}
+
+export interface Task {
+  taskID: string;
+  tasktitle: string;
+  taskdescription: string;
+  taskpriority: string;
+  taskduedate: string;
+  taskcategory: string;
+  taskdone: boolean;
 }

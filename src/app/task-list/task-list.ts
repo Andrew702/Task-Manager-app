@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { TaskCard } from '../task-card/task-card';
+import { Task } from '../app';
 
 @Component({
   selector: 'app-task-list',
@@ -7,4 +8,6 @@ import { TaskCard } from '../task-card/task-card';
   templateUrl: './task-list.html',
   styleUrl: './task-list.css',
 })
-export class TaskList {}
+export class TaskList {
+  TaskArr: Task[] = [];
+}

@@ -1,29 +1,58 @@
-<form action="">
-  <h2>Add Task:</h2>
-  <input type="text" [(ngModel)]="tasktitle" name="Tasktitle" placeholder="Task Title" /> <br />
-  <input
-    type="text"
-    [(ngModel)]="taskdescription"
-    name="Taskdescription"
-    placeholder="Task Description"
-  />
-  <br />
-  <label for="taskPriority">Task Priority</label>
-  <select name="TaskPrioritySelector" [(ngModel)]="taskpriority" id="taskPriority">
-    <option value="Low">Low</option>
-    <option value="Medium">Medium</option>
-    <option value="High">High</option>
-  </select>
-  <br />
-  <label for="DueDate">Due Date</label>
-  <input type="date" name="DueDate" [(ngModel)]="taskduedate" id="DueDate" /> <br />
-  <label for="Category">Category</label>
-  <select name="Category" id="Category" [(ngModel)]="taskcategory">
-    <option value="Work">Work</option>
-    <option value="Personal">Personal</option>
-    <option value="Study">Study</option>
-  </select>
-  <br />
+<div class="container-fluid">
+  <div class="row text-center">
+    <h2>Add Task:</h2>
+  </div>
 
-  <input type="button" (click)="Display()" value="Add Task" />
-</form>
+  <div class="row text-center">
+    <div class="col-3">
+      <input
+        type="text"
+        [(ngModel)]="CurrTask.tasktitle"
+        name="Tasktitle"
+        placeholder="Task Title"
+      />
+    </div>
+    <div class="col-6">
+      <input
+        type="text"
+        [(ngModel)]="CurrTask.taskdescription"
+        name="Taskdescription"
+        placeholder="Task Description"
+      />
+    </div>
+    <div class="col-3">
+      <div class="row">
+        <div class="col-6">
+          <label for="taskPriority">Task Priority</label>
+        </div>
+        <div class="col-6">
+          <select name="TaskPrioritySelector" [(ngModel)]="CurrTask.taskpriority" id="taskPriority">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row text-center">
+    <div class="col-4">
+      <div class="row">
+        <div class="col-6"><label for="DueDate">Due Date</label></div>
+        <div class="col-6">
+          <input type="date" name="DueDate" [(ngModel)]="CurrTask.taskduedate" id="DueDate" />
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <label for="Category">Category</label>
+      <select name="Category" id="Category" [(ngModel)]="CurrTask.taskcategory">
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+        <option value="Study">Study</option>
+      </select>
+    </div>
+    <div class="col-4"><input type="button" (click)="AddTask()" value="Add Task" /></div>
+  </div>
+</div>

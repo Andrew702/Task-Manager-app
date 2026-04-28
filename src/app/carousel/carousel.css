@@ -1,16 +1,1 @@
-div.container {
-  width: 360px;
-  height: 300px;
-  border: 2px solid black;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  gap: 10px;
-}
 
-div.row {
-  text-align: center;
-  width: 100%;
-}
