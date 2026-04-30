@@ -6,7 +6,7 @@ import { DoneTasks } from '../done-tasks/done-tasks';
 import { PendingTasks } from '../pending-tasks/pending-tasks';
 @Component({
   selector: 'app-task-list',
-  imports: [AllTasks, DoneTasks, PendingTasks],
+  imports: [AllTasks, DoneTasks, PendingTasks, TaskCard],
   templateUrl: './task-list.html',
   styleUrl: './task-list.css',
 })

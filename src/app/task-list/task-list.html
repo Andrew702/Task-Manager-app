@@ -1,12 +1,11 @@
-<div class="container-fluid px-4 py-4">
+<div class="container-sm border border-dark rounded shadow mb-3">
   <!-- filter buttons -->
-  <div class="row justify-content-center mb-4">
-    <div class="col-12 d-flex">
-      <button class="btn btn-primary" (click)="Selection = 'All'">All Tasks</button>
-      <button class="btn btn-outline-success" (click)="Selection = 'Done'">Done</button>
-      <button class="btn btn-outline-warning" (click)="Selection = 'Pending'">Pending</button>
+  <div class="row">
+    <div class="my-3">
+      <button class="btn btn-outline-primary mx-1" (click)="Selection = 'All'">All Tasks</button>
+      <button class="btn btn-outline-success mx-1" (click)="Selection = 'Done'">Done</button>
+      <button class="btn btn-outline-warning mx-1" (click)="Selection = 'Pending'">Pending</button>
     </div>
-    {{ Selection }}
 
     @if (Selection == 'All') {
       <app-all-tasks [TaskArr]="TaskArr" (DeleteEvent)="DeleteTask($event)"></app-all-tasks>
