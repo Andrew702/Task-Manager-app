@@ -35,9 +35,10 @@ export class TaskList implements OnChanges {
         RecievedTaskChange.currentValue != RecievedTaskChange.previousValue &&
         this.EditMode == false
       )
-        this.TaskArr.push(this.RecievedTask);
+        this.TaskArr.push({ ...this.RecievedTask });
   }
 
+  //when i send an update request to edit data
   OnRecievedTaskChange() {
     this.RecievedTaskChange.emit({ ...this.RecievedTask } as Task);
   }

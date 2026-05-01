@@ -13,11 +13,19 @@ import { Carousel } from './carousel/carousel';
   styleUrl: './app.css',
 })
 export class App {
-  AppTask!: Task;
+  AppTask: Task = {
+    taskID: '',
+    tasktitle: '',
+    taskdescription: '',
+    taskpriority: '',
+    taskduedate: '',
+    taskcategory: '',
+    taskdone: false,
+  };
 
-  RecieveTaskInput(recievedTask: Task) {
-    this.AppTask = recievedTask;
-  }
+  // RecieveTaskInput(recievedTask: Task) {
+  //   this.AppTask = recievedTask;
+  // }
 }
 
 export interface Task {
