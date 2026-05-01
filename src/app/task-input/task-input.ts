@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Task } from '../app';
 import { v4 as uuidv4 } from 'uuid';
@@ -10,8 +10,8 @@ import { v4 as uuidv4 } from 'uuid';
   styleUrl: './task-input.css',
 })
 export class TaskInput {
-  CurrTask: Partial<Task> = {};
-  @Output() TaskOutEvent = new EventEmitter<Task>();
+  @Input() CurrTask!: Task;
+  @Output() CurrTaskChange = new EventEmitter();
 
   Display() {
     console.log(`
@@ -27,7 +27,7 @@ export class TaskInput {
     this.CurrTask.taskID = uuidv4();
     this.CurrTask.taskdone = false;
     //tobedone if (!this.validateData())
-    this.TaskOutEvent.emit(this.CurrTask as Task);
+    this.CurrTaskChange.emit({ ...this.CurrTask } as Task); //send copy
   }
 
   validateData(): boolean {

@@ -9,12 +9,20 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <div class="d-flex gap-2">
-        <button class="btn btn-sm btn-outline-secondary" (click)="DeleteTask()">Delete</button>
-        <button class="btn btn-sm btn-primary">Update</button>
+        <button class="btn btn-sm btn-danger" (click)="DeleteTask()">Delete</button>
+        <button class="btn btn-sm btn-primary" (click)="SendUpdate()">Edit</button>
+        <button class="btn btn-sm btn-secondary" (click)="PullUpdate()">Update</button>
       </div>
 
       <div class="form-check mb-0">
-        <input class="form-check-input" id="chkdone" type="checkbox" [value]="Task.taskdone" />
+        <input
+          class="form-check-input"
+          id="chkdone"
+          type="checkbox"
+          [checked]="Task.taskdone"
+          (click)="TaskDoneChanged()"
+        />
+        <!-- Runtime Error when i Tried to use [value] instead of checked -->
         <label class="form-check-label" for="chkdone">Done</label>
       </div>
     </div>

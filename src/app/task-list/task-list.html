@@ -7,16 +7,34 @@
       <button class="btn btn-outline-warning mx-1" (click)="Selection = 'Pending'">Pending</button>
     </div>
 
+    <div class="text-center">
+      <label class="text-primary border border-primary border-3 px-3 py-1 mb-3 rounded">{{
+        Selection
+      }}</label>
+    </div>
     @if (Selection == 'All') {
-      <app-all-tasks [TaskArr]="TaskArr" (DeleteEvent)="DeleteTask($event)"></app-all-tasks>
+      <app-all-tasks
+        [TaskArr]="TaskArr"
+        (DeleteEvent)="DeleteTask($event)"
+        (DoneChangedEvent)="DoneChanged($event)"
+        (SendUpdateEvent)="StartUpdate($event)"
+        (PullUpdateEvent)="FinishUpdate()"
+      ></app-all-tasks>
     } @else if (Selection == 'Done') {
       <app-done-tasks
         [TaskArr]="TaskArr.filter((elem) => elem.taskdone == true)"
         (DeleteEvent)="DeleteTask($event)"
+        (DoneChangedEvent)="DoneChanged($event)"
+        (SendUpdateEvent)="StartUpdate($event)"
+        (PullUpdateEvent)="FinishUpdate()"
       ></app-done-tasks>
     } @else if (Selection == 'Pending') {
       <app-pending-tasks
         [TaskArr]="TaskArr.filter((elem) => elem.taskdone == false)"
+        (DeleteEvent)="DeleteTask($event)"
+        (DoneChangedEvent)="DoneChanged($event)"
+        (SendUpdateEvent)="StartUpdate($event)"
+        (PullUpdateEvent)="FinishUpdate()"
       ></app-pending-tasks>
     }
   </div>
