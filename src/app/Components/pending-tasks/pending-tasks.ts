@@ -1,18 +1,19 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Task } from '../app';
 import { TaskCard } from '../task-card/task-card';
+import { Task } from '../../app';
 
 @Component({
-  selector: 'app-done-tasks',
+  selector: 'app-pending-tasks',
   imports: [TaskCard],
-  templateUrl: './done-tasks.html',
-  styleUrl: './done-tasks.css',
+  templateUrl: './pending-tasks.html',
+  styleUrl: './pending-tasks.css',
 })
-export class DoneTasks {
+export class PendingTasks {
   @Input() TaskArr: Task[] = [];
 
   @Output() DeleteEvent: EventEmitter<string> = new EventEmitter();
   @Output() DoneChangedEvent: EventEmitter<string> = new EventEmitter();
+
   @Output() SendUpdateEvent: EventEmitter<Task> = new EventEmitter();
   @Output() PullUpdateEvent: EventEmitter<null> = new EventEmitter();
 
@@ -23,7 +24,6 @@ export class DoneTasks {
   DoneChanged(TaskID: string) {
     this.DoneChangedEvent.emit(TaskID);
   }
-
   SendUpdate(TasktoUpdate: Task) {
     this.SendUpdateEvent.emit(TasktoUpdate);
   }

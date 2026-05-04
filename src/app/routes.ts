@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import { Carousel } from './carousel/carousel';
 import { Main } from './layouts/main/main';
-import { Notfound } from './notfound/notfound';
+import { Carousel } from './Components/carousel/carousel';
+import { TaskInput } from './Components/task-input/task-input';
+import { TaskList } from './Components/task-list/task-list';
 import { Auth } from './layouts/auth/auth';
-import { Login } from './login/login';
-import { Signup } from './signup/signup';
-import { TaskInput } from './task-input/task-input';
-import { TaskList } from './task-list/task-list';
+import { Login } from './Components/login/login';
+import { Signup } from './Components/signup/signup';
+import { Notfound } from './Components/notfound/notfound';
 
 export const routes: Routes = [
   {

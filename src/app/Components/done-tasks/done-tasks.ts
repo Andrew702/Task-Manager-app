@@ -1,22 +1,21 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Task } from '../app';
+import { Task } from '../../app';
 import { TaskCard } from '../task-card/task-card';
 
 @Component({
-  selector: 'app-all-tasks',
+  selector: 'app-done-tasks',
   imports: [TaskCard],
-  templateUrl: './all-tasks.html',
-  styleUrl: './all-tasks.css',
+  templateUrl: './done-tasks.html',
+  styleUrl: './done-tasks.css',
 })
-export class AllTasks {
+export class DoneTasks {
   @Input() TaskArr: Task[] = [];
 
   @Output() DeleteEvent: EventEmitter<string> = new EventEmitter();
   @Output() DoneChangedEvent: EventEmitter<string> = new EventEmitter();
-
   @Output() SendUpdateEvent: EventEmitter<Task> = new EventEmitter();
   @Output() PullUpdateEvent: EventEmitter<null> = new EventEmitter();
-  //only propagate upwards
+
   DeleteTask(TaskID: string) {
     this.DeleteEvent.emit(TaskID);
   }

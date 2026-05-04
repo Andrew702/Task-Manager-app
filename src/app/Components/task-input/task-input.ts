@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Task } from '../app';
+import { Task } from '../../app';
 import { v4 as uuidv4 } from 'uuid';
 import { Title } from '@angular/platform-browser';
 

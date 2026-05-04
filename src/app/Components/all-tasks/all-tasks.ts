@@ -1,14 +1,14 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Task } from '../app';
 import { TaskCard } from '../task-card/task-card';
+import { Task } from '../../app';
 
 @Component({
-  selector: 'app-pending-tasks',
+  selector: 'app-all-tasks',
   imports: [TaskCard],
-  templateUrl: './pending-tasks.html',
-  styleUrl: './pending-tasks.css',
+  templateUrl: './all-tasks.html',
+  styleUrl: './all-tasks.css',
 })
-export class PendingTasks {
+export class AllTasks {
   @Input() TaskArr: Task[] = [];
 
   @Output() DeleteEvent: EventEmitter<string> = new EventEmitter();
@@ -16,7 +16,7 @@ export class PendingTasks {
 
   @Output() SendUpdateEvent: EventEmitter<Task> = new EventEmitter();
   @Output() PullUpdateEvent: EventEmitter<null> = new EventEmitter();
-
+  //only propagate upwards
   DeleteTask(TaskID: string) {
     this.DeleteEvent.emit(TaskID);
   }
@@ -24,6 +24,7 @@ export class PendingTasks {
   DoneChanged(TaskID: string) {
     this.DoneChangedEvent.emit(TaskID);
   }
+
   SendUpdate(TasktoUpdate: Task) {
     this.SendUpdateEvent.emit(TasktoUpdate);
   }

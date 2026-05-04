@@ -8,7 +8,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { TaskCard } from '../task-card/task-card';
-import { Task } from '../app';
+import { Task } from '../../app';
 import { AllTasks } from '../all-tasks/all-tasks';
 import { DoneTasks } from '../done-tasks/done-tasks';
 import { PendingTasks } from '../pending-tasks/pending-tasks';
