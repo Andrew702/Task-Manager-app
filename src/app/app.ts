@@ -5,10 +5,12 @@ import { TaskInput } from './task-input/task-input';
 import { TaskList } from './task-list/task-list';
 import { Footer } from './footer/footer';
 import { Carousel } from './carousel/carousel';
+import { Login } from './login/login';
+import { Signup } from './signup/signup';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, TaskInput, TaskList, Footer, Carousel],
+  imports: [Header, TaskInput, TaskList, Footer, Carousel, Login, Signup],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

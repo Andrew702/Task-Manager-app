@@ -1,65 +1,78 @@
 <div class="container-sm border border-dark shadow rounded mb-3">
-  <div class="row m-2">
-    <h2>Add Task</h2>
-  </div>
+  <form [formGroup]="form">
+    <div class="row m-2">
+      <h2 class="display-5">Add New Task</h2>
+    </div>
 
-  <div class="row m-2">
-    <div class="col-3">
-      <input
-        class="form-control m-2"
-        type="text"
-        [(ngModel)]="CurrTask.tasktitle"
-        name="Tasktitle"
-        placeholder="Task Title"
-      />
+    <div class="row m-2">
+      <div class="col-3">
+        <input
+          formControlName="Title"
+          class="form-control my-2"
+          type="text"
+          name="Tasktitle"
+          placeholder="Task Title"
+        />
+        @if (form.controls.Title.dirty) {
+          @if (form.controls.Title.errors?.['required'] != null) {
+            <div class="alert alert-danger mx-3 py-0 text-center" role="alert">required field</div>
+          }
+        }
+      </div>
+      <div class="col-9">
+        <input
+          formControlName="Description"
+          class="form-control my-2"
+          type="text"
+          name="Taskdescription"
+          placeholder="Task Description"
+        />
+        @if (form.controls.Description.dirty) {
+          @if (form.controls.Description.errors?.['required'] != null) {
+            <div class="alert alert-danger mx-3 py-0 text-center" role="alert">required field</div>
+          }
+        }
+      </div>
     </div>
-    <div class="col-9">
-      <input
-        class="form-control m-2"
-        type="text"
-        [(ngModel)]="CurrTask.taskdescription"
-        name="Taskdescription"
-        placeholder="Task Description"
-      />
-    </div>
-  </div>
-  <div class="row text-center mx-2">
-    <div class="col-4 mb-4">
-      <label for="taskPriority" class="form-label">Task Priority</label>
-      <select
-        name="TaskPrioritySelector"
-        class="form-select"
-        [(ngModel)]="CurrTask.taskpriority"
-        id="taskPriority"
-      >
-        <option value="" disabled>Task Priority</option>
-        <option value="Low">Low</option>
-        <option value="Medium">Medium</option>
-        <option value="High">High</option>
-      </select>
-    </div>
-    <div class="col-4 mb-4">
-      <div class="row text-center">
+    <div class="row text-center m-2">
+      <div class="col-4 mb-4">
+        <label for="taskPriority" class="form-label">Task Priority</label>
+        <select
+          formControlName="Priority"
+          name="TaskPrioritySelector"
+          class="form-select"
+          id="taskPriority"
+        >
+          <option value="" disabled>Task Priority</option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+      </div>
+      <div class="col-4 mb-4">
         <label for="DueDate" class="form-label">Due Date</label>
         <input
+          formControlName="DueDate"
           type="date"
           name="DueDate"
           class="form-control"
-          [(ngModel)]="CurrTask.taskduedate"
           id="DueDate"
         />
       </div>
+      <div class="col-4 mb-4">
+        <label for="Category" class="form-label">Category</label>
+        <select formControlName="Category" name="Category" class="form-select" id="Category">
+          <option value="" disabled>Category</option>
+          <option value="Work">Work</option>
+          <option value="Personal">Personal</option>
+          <option value="Study">Study</option>
+        </select>
+      </div>
+      <div class="text-cetner mb-3">
+        <button [disabled]="form.invalid" class="btn btn-primary" (click)="AddTask()">
+          Add Task
+        </button>
+      </div>
     </div>
-    <div class="col-4 mb-4">
-      <label for="Category" class="form-label">Category</label>
-      <select name="Category" class="form-select" id="Category" [(ngModel)]="CurrTask.taskcategory">
-        <option value="Work">Work</option>
-        <option value="Personal">Personal</option>
-        <option value="Study">Study</option>
-      </select>
-    </div>
-    <div class="text-cetner mb-2">
-      <button class="btn btn-primary col-2" (click)="AddTask()">Add Task</button>
-    </div>
-  </div>
+  </form>
 </div>

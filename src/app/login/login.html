@@ -1,1 +1,61 @@
-<p>login works!</p>
+<div class="container-sm border border-dark shadow rounded text-center mb-3">
+  <form #loginform="ngForm">
+    <h1 class="display-4">Login</h1>
+    <label class="form-label text-dark fw-semibold mt-2 ms-2 mb-0" for="emailInput">Email</label>
+    <div class="col-9 m-auto">
+      <input
+        ngModel
+        #email="ngModel"
+        class="form-control form-text shadow overflow-auto mb-3"
+        type="text"
+        name="email"
+        id="emailInput"
+        placeholder="Enter Your Email"
+        required
+        pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
+      />
+
+      @if (email.control.dirty == true) {
+        @if (email.control.errors?.['required'] != null) {
+          <div class="alert alert-danger col-6 p-1 m-auto" role="alert">required</div>
+        }
+        @if (email.control.errors?.['pattern'] != null) {
+          <div class="alert alert-danger col-6 p-1 m-auto" role="alert">invalid email format</div>
+        }
+      }
+    </div>
+    <label for="passwordInput" class="form-label text-dark fw-semibold mt-2 ms-2 mb-0"
+      >Password</label
+    >
+    <div class="col-9 m-auto">
+      <input
+        ngModel
+        class="form-control form-text shadow overflow-auto mb-3"
+        type="password"
+        name="password"
+        id="passwordInput"
+        placeholder="Enter Your Password"
+        required
+        pattern="^.{6,}$"
+      />
+
+      @if (loginform.form.controls['password']?.touched) {
+        @if (loginform.form.controls['password']?.errors?.['required']) {
+          <div class="alert alert-danger col-6 p-1 m-auto" role="alert">required</div>
+        }
+      }
+    </div>
+
+    <!-- @if (loginform.dirty == true && loginform.valid == false) {
+      <div class="alert alert-danger col-6 p-1 m-auto" role="alert">Invalid Data</div>
+    } -->
+
+    <button
+      [disabled]="loginform.invalid"
+      (click)="Submit(loginform)"
+      class="btn btn-secondary mt-4 mb-3"
+    >
+      Login
+    </button>
+  </form>
+</div>
