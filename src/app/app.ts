@@ -1,16 +1,9 @@
 import { Component, EventEmitter, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Header } from './header/header';
-import { TaskInput } from './task-input/task-input';
-import { TaskList } from './task-list/task-list';
-import { Footer } from './footer/footer';
-import { Carousel } from './carousel/carousel';
-import { Login } from './login/login';
-import { Signup } from './signup/signup';
 
 @Component({
   selector: 'app-root',
-  imports: [Header, TaskInput, TaskList, Footer, Carousel, Login, Signup],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
