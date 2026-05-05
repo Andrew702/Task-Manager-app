@@ -30,7 +30,8 @@ export class TaskInput {
   form!: FormGroup;
   taskApiServ = inject(TaskApi);
 
-  constructor() {
+  ngOnInit() {
+    this.taskApiServ.getAllTasks();
     if (this.TaskServ.editingFlag == true) {
       this.CurrTask = { ...this.TaskServ.CurrEditTask };
     }
@@ -41,10 +42,6 @@ export class TaskInput {
       DueDate: new FormControl(this.CurrTask.taskduedate, Validators.required),
       Category: new FormControl(this.CurrTask.taskcategory, Validators.required),
     });
-  }
-
-  ngOnInit() {
-    this.taskApiServ.getAllTasks();
   }
 
   Submit() {
@@ -69,10 +66,11 @@ export class TaskInput {
       this.TaskServ.pullChanges(this.CurrTask);
       this.TaskServ.editingFlag = false;
       //update to server
-      this.taskApiServ.updateTask(this.CurrTask);
+      this.form.reset();
       this.router.navigate(['/main', 'tasklist']);
     } else {
-      this.taskApiServ.addTask(this.CurrTask); //add to server
+      this.form.reset();
+      this.TaskServ.addTask({ ...this.CurrTask });
     }
   }
 }

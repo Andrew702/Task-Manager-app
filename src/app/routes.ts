@@ -7,6 +7,7 @@ import { Auth } from './layouts/auth/auth';
 import { Login } from './Components/login/login';
 import { Signup } from './Components/signup/signup';
 import { Notfound } from './Components/notfound/notfound';
+import { authGuardGuard } from './guards/auth-guard-guard';
 
 export const routes: Routes = [
   {
@@ -17,6 +18,7 @@ export const routes: Routes = [
   {
     path: 'main',
     component: Main,
+    canActivate: [authGuardGuard],
     children: [
       {
         path: '',
