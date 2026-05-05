@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Task } from '../../app';
+import { Taskmanager } from '../../Services/taskmanager';
 
 @Component({
   selector: 'app-task-card',
@@ -10,26 +11,17 @@ import { Task } from '../../app';
 export class TaskCard {
   @Input() Task: Partial<Task> = {};
 
-  @Output() DeleteEvent: EventEmitter<string> = new EventEmitter();
-
-  @Output() DoneChangedEvent: EventEmitter<string> = new EventEmitter();
-
-  @Output() SendUpdateEvent: EventEmitter<Task> = new EventEmitter();
-  @Output() PullUpdateEvent: EventEmitter<Task> = new EventEmitter();
+  TaskServ = inject(Taskmanager);
 
   TaskDoneChanged() {
-    this.DoneChangedEvent.emit(this.Task.taskID);
+    this.TaskServ.taskMarkDoneToggle(this.Task.taskID!);
   }
 
   DeleteTask() {
-    this.DeleteEvent.emit(this.Task.taskID);
+    this.TaskServ.taskDelete(this.Task.taskID!);
   }
 
   SendUpdate() {
-    this.SendUpdateEvent.emit(this.Task as Task);
-  }
-
-  PullUpdate() {
-    this.PullUpdateEvent.emit();
+    this.TaskServ.taskUpdate(this.Task.taskID!);
   }
 }

@@ -13,8 +13,8 @@
           name="Tasktitle"
           placeholder="Task Title"
         />
-        @if (form.controls.Title.dirty) {
-          @if (form.controls.Title.errors?.['required'] != null) {
+        @if (form.controls['Title'].dirty) {
+          @if (form.controls['Title'].errors?.['required'] != null) {
             <div class="alert alert-danger mx-3 py-0 text-center" role="alert">required field</div>
           }
         }
@@ -27,8 +27,8 @@
           name="Taskdescription"
           placeholder="Task Description"
         />
-        @if (form.controls.Description.dirty) {
-          @if (form.controls.Description.errors?.['required'] != null) {
+        @if (form.controls['Description'].dirty) {
+          @if (form.controls['Description'].errors?.['required'] != null) {
             <div class="alert alert-danger mx-3 py-0 text-center" role="alert">required field</div>
           }
         }
@@ -69,8 +69,8 @@
         </select>
       </div>
       <div class="text-cetner mb-3">
-        <button [disabled]="form.invalid" class="btn btn-primary" (click)="AddTask()">
-          Add Task
+        <button [disabled]="form.invalid" class="btn btn-primary" (click)="Submit()">
+          {{ TaskServ.editingFlag ? 'Apply Edit' : 'Add Task' }}
         </button>
       </div>
     </div>

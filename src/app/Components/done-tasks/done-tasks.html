@@ -1,9 +1,3 @@
-@for (Task of TaskArr; track Task.taskID) {
-  <app-task-card
-    [Task]="Task"
-    (DeleteEvent)="DeleteTask($event)"
-    (DoneChangedEvent)="DoneChanged($event)"
-    (SendUpdateEvent)="SendUpdate($event)"
-    (PullUpdateEvent)="PullUpdate()"
-  ></app-task-card>
+@for (Task of TaskServ.getAllTasks().filter((Task) => Task.taskdone === true); track Task.taskID) {
+  <app-task-card [Task]="Task"></app-task-card>
 }
