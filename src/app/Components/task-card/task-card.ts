@@ -9,19 +9,19 @@ import { Taskmanager } from '../../Services/taskmanager';
   styleUrl: './task-card.css',
 })
 export class TaskCard {
-  @Input() Task: Partial<Task> = {};
+  @Input() CurrTask: Task | null = null;
 
   TaskServ = inject(Taskmanager);
 
   TaskDoneChanged() {
-    this.TaskServ.taskMarkDoneToggle(this.Task.taskID!);
+    if (this.CurrTask) this.TaskServ.taskMarkDoneToggle(this.CurrTask.id);
   }
 
   DeleteTask() {
-    this.TaskServ.taskDelete(this.Task.taskID!);
+    if (this.CurrTask) this.TaskServ.taskDelete(this.CurrTask.id);
   }
 
   SendUpdate() {
-    this.TaskServ.taskUpdate(this.Task.taskID!);
+    if (this.CurrTask) this.TaskServ.taskUpdate(this.CurrTask.id);
   }
 }

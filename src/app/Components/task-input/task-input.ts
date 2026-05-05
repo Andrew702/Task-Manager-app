@@ -6,6 +6,7 @@ import { Title } from '@angular/platform-browser';
 import { Taskmanager } from '../../Services/taskmanager';
 import { Router } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
+import { TaskApi } from '../../Services/task-api';
 
 @Component({
   selector: 'app-task-input',
@@ -15,7 +16,7 @@ import { RouterTestingHarness } from '@angular/router/testing';
 })
 export class TaskInput {
   CurrTask: Task = {
-    taskID: '',
+    id: '',
     tasktitle: '',
     taskdescription: '',
     taskcategory: '',
@@ -27,6 +28,7 @@ export class TaskInput {
   TaskServ = inject(Taskmanager);
   router = inject(Router);
   form!: FormGroup;
+  taskApiServ = inject(TaskApi);
 
   constructor() {
     if (this.TaskServ.editingFlag == true) {
@@ -41,9 +43,13 @@ export class TaskInput {
     });
   }
 
+  ngOnInit() {
+    this.taskApiServ.getAllTasks();
+  }
+
   Submit() {
     this.CurrTask = {
-      taskID: uuidv4(),
+      id: uuidv4(),
       tasktitle: this.form.controls['Title'].value == null ? '' : this.form.controls['Title'].value,
       taskdescription:
         this.form.controls['Description'].value == null
@@ -59,12 +65,14 @@ export class TaskInput {
     };
 
     if (this.TaskServ.editingFlag === true) {
-      this.CurrTask.taskID = this.TaskServ.CurrEditTask.taskID;
+      this.CurrTask.id = this.TaskServ.CurrEditTask.id;
       this.TaskServ.pullChanges(this.CurrTask);
       this.TaskServ.editingFlag = false;
+      //update to server
+      this.taskApiServ.updateTask(this.CurrTask);
       this.router.navigate(['/main', 'tasklist']);
     } else {
-      this.TaskServ.addTask(this.CurrTask);
+      this.taskApiServ.addTask(this.CurrTask); //add to server
     }
   }
 }

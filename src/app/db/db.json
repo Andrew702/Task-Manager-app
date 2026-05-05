@@ -1,16 +1,16 @@
 {
   "tasks": [
     {
-      "taskID": "1",
-      "tasktitle": "title1",
+      "id": "Pv-U-pfiOpE",
+      "tasktitle": "title111",
       "taskdescription": "desc1",
       "taskcategory": "work",
-      "taskdone": false,
+      "taskdone": true,
       "taskduedate": "2026-05-07",
-      "taskpriority": "Low"
+      "taskpriority": "High"
     },
     {
-      "taskID": "2",
+      "id": "bEFYJ-pCHYU",
       "tasktitle": "title2",
       "taskdescription": "desc2",
       "taskcategory": "work",
@@ -19,7 +19,7 @@
       "taskpriority": "Low"
     },
     {
-      "taskID": "3",
+      "id": "Ouj-13X8o_o",
       "tasktitle": "title3",
       "taskdescription": "desc3",
       "taskcategory": "work",
@@ -28,7 +28,7 @@
       "taskpriority": "Low"
     },
     {
-      "taskID": "4",
+      "id": "rt8F5yh6ujA",
       "tasktitle": "title4",
       "taskdescription": "desc4",
       "taskcategory": "work",
@@ -37,7 +37,7 @@
       "taskpriority": "Low"
     },
     {
-      "taskID": "5",
+      "id": "NBQb8LfbGJs",
       "tasktitle": "title5",
       "taskdescription": "desc5",
       "taskcategory": "work",
@@ -46,7 +46,7 @@
       "taskpriority": "Low"
     },
     {
-      "taskID": "6",
+      "id": "GjQQylMVoLY",
       "tasktitle": "title6",
       "taskdescription": "desc6",
       "taskcategory": "work",
@@ -55,7 +55,7 @@
       "taskpriority": "Low"
     },
     {
-      "taskID": "7",
+      "id": "_oSPVCkH8PY",
       "tasktitle": "title7",
       "taskdescription": "desc7",
       "taskcategory": "work",
@@ -64,7 +64,7 @@
       "taskpriority": "Low"
     },
     {
-      "taskID": "8",
+      "id": "YS8di5dRqGM",
       "tasktitle": "title8",
       "taskdescription": "desc8",
       "taskcategory": "work",
@@ -72,5 +72,6 @@
       "taskduedate": "2026-05-07",
       "taskpriority": "Low"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

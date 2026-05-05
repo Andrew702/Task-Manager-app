@@ -10,7 +10,7 @@ import { Header } from './Components/header/header';
 })
 export class App {
   AppTask: Task = {
-    taskID: '',
+    id: '',
     tasktitle: '',
     taskdescription: '',
     taskpriority: '',
@@ -25,7 +25,7 @@ export class App {
 }
 
 export interface Task {
-  taskID: string;
+  id: string;
   tasktitle: string;
   taskdescription: string;
   taskpriority: string;

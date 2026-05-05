@@ -1,3 +1,6 @@
-@for (Task of TaskServ.getAllTasks().filter((Task) => Task.taskdone === false); track Task.taskID) {
-  <app-task-card [Task]="Task"></app-task-card>
+@for (
+  Task of TaskServ.getAllTasksLocal().filter((Task) => Task.taskdone === false);
+  track Task.id
+) {
+  <app-task-card [CurrTask]="Task"></app-task-card>
 }
