@@ -1,5 +1,7 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { AuthApi } from '../../Services/auth-api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +10,20 @@ import { FormsModule, NgForm } from '@angular/forms';
   styles: ``,
 })
 export class Login {
-  // @ViewChild('form') myform!: ElementRef;
+  credApi = inject(AuthApi);
+  route = inject(Router);
+  @ViewChild('logging') loginMsg!: ElementRef;
+
+  ngAfterViewInit() {
+    console.log('run');
+    this.loginMsg.nativeElement.style.display = 'none';
+  }
 
   Submit(form: NgForm) {
-    console.log(form);
+    this.credApi.LogIn({
+      username: '',
+      email: form.form.controls?.['email'].value,
+      password: form.form.controls?.['password'].value,
+    });
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
@@ -7,6 +7,7 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { AuthApi } from '../../Services/auth-api';
 
 function noMatch(frmGrp: AbstractControl): null | ValidationErrors {
   const password = frmGrp.get('password')?.value;
@@ -22,6 +23,8 @@ function noMatch(frmGrp: AbstractControl): null | ValidationErrors {
   styles: ``,
 })
 export class Signup {
+  authApi = inject(AuthApi);
+
   signupform = new FormGroup(
     {
       username: new FormControl('', [Validators.minLength(6), Validators.required]),
@@ -33,6 +36,10 @@ export class Signup {
   );
 
   Submit() {
-    console.log(this.signupform);
+    this.authApi.SignUp({
+      username: this.signupform.controls.username.value as string,
+      email: this.signupform.controls.email.value as string,
+      password: this.signupform.controls.password.value as string,
+    });
   }
 }

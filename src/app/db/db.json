@@ -82,5 +82,25 @@
       "taskpriority": "Low"
     }
   ],
+  "Users": [
+    {
+      "username": "ahmed",
+      "email": "ahmed1122@gmail.com",
+      "password": "123456aa",
+      "id": "Eg9G6_F4oWo"
+    },
+    {
+      "username": "andrew702",
+      "email": "ssssd@32423.com",
+      "password": "123123aa",
+      "id": "sxd_Pj3u3v8"
+    },
+    {
+      "username": "aaaaaaa",
+      "email": "asdasd@gmail.com",
+      "password": "123123aa",
+      "id": "gaSnBH6QYgA"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

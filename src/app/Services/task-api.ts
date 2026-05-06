@@ -4,7 +4,7 @@ import { Task } from '../app';
 import { UrlCodec } from '@angular/common/upgrade';
 import { Observable } from 'rxjs';
 
-const URL: string = 'http://localhost:3000';
+export const URL: string = 'http://localhost:3000';
 
 @Injectable({
   providedIn: 'root',

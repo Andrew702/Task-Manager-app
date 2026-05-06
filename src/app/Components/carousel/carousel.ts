@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-carousel',
@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class Carousel {
   imgs: string[] = ['imgs/p1.png', 'imgs/p2.png', 'imgs/p3.jpg', 'imgs/p5.png'];
-  currentindex: number = 0;
+  currentindex = signal<number>(0);
   radioselectedstyle = {
     border: '1px solid blue',
     borderRadius: '50%',
@@ -22,19 +22,19 @@ export class Carousel {
   // sets current to next img
 
   gonext(flag: boolean) {
-    if (this.currentindex == this.imgs.length - 1) this.currentindex = 0;
-    else this.currentindex++;
+    if (this.currentindex() == this.imgs.length - 1) this.currentindex.set(0);
+    else this.currentindex.update((val) => val + 1);
     if (flag) this.StopSlideShow();
   }
 
   goprevious(flag: boolean) {
-    if (this.currentindex == 0) this.currentindex = this.imgs.length - 1;
-    else this.currentindex--;
+    if (this.currentindex() == 0) this.currentindex.set(this.imgs.length - 1);
+    else this.currentindex.update((val) => val - 1);
     if (flag) this.StopSlideShow();
   }
 
   goindex(index: number) {
-    this.currentindex = index;
+    this.currentindex.set(index);
   }
 
   StartSlideShow() {

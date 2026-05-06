@@ -1,10 +1,11 @@
 import { Component, EventEmitter, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './Components/header/header';
+import { NotificationBanner } from './Components/notification-banner/notification-banner';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header],
+  imports: [RouterOutlet, Header, NotificationBanner],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
