@@ -30,7 +30,7 @@ export class Taskmanager {
   getAllTasksRemote() {
     this.taskApi.getAllTasks().subscribe((taskArr) => {
       this.Tasks.set([...taskArr]);
-      console.log(this.Tasks());
+      // console.log(this.Tasks());
     });
   }
 

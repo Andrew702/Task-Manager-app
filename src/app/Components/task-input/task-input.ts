@@ -7,6 +7,7 @@ import { Taskmanager } from '../../Services/taskmanager';
 import { Router } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { TaskApi } from '../../Services/task-api';
+import { NotificationService } from '../../Services/notification-service';
 
 @Component({
   selector: 'app-task-input',
@@ -29,9 +30,10 @@ export class TaskInput {
   router = inject(Router);
   form!: FormGroup;
   taskApiServ = inject(TaskApi);
+  notify = inject(NotificationService);
 
   ngOnInit() {
-    this.taskApiServ.getAllTasks();
+    // this.taskApiServ.getAllTasks();
     if (this.TaskServ.editingFlag == true) {
       this.CurrTask = { ...this.TaskServ.CurrEditTask };
     }
@@ -68,9 +70,19 @@ export class TaskInput {
       //update to server
       this.form.reset();
       this.router.navigate(['/main', 'tasklist']);
+      this.notify.show({
+        message: 'Task Edited',
+        type: 'info',
+        duration: 3000,
+      });
     } else {
       this.form.reset();
       this.TaskServ.addTask({ ...this.CurrTask });
+      this.notify.show({
+        message: 'Task Added',
+        type: 'info',
+        duration: 3000,
+      });
     }
   }
 }

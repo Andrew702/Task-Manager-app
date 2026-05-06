@@ -15,7 +15,7 @@ export class AuthApi {
   notify = inject(NotificationService);
   router = inject(Router);
 
-  loggedState = signal<boolean>(false);
+  loggedState = signal<boolean>(localStorage.getItem('token') != null);
 
   SignUp(_Cred: AuthCred) {
     this.http.post<AuthCred>(URL + '/Users', _Cred).subscribe({
@@ -87,7 +87,7 @@ export class AuthApi {
       type: 'success',
       duration: 2000,
     });
-    this.router.navigate(['/auth', 'login ']);
+    this.router.navigate(['/auth', 'login']);
     this.loggedState.set(false);
     localStorage.removeItem('token');
   }

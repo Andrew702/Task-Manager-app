@@ -23,7 +23,7 @@ import { TaskApi } from '../../Services/task-api';
   styleUrl: './task-list.css',
 })
 export class TaskList {
-  Selection: 'All' | 'Pending' | 'Done' = 'All';
+  Selection: 'All' | 'Pending' | 'Done' = 'Pending';
   EditMode: boolean = false;
   TempTaskStorage!: Task;
   taskApiServ = inject(TaskApi);
